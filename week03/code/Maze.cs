@@ -25,6 +25,16 @@ public class Maze
         _mazeMap = mazeMap;
     }
 
+    // private bool CanMove(int x, int y) // helper function to check if we can move to a new location
+    // {
+    //     return _mazeMap.ContainsKey((x, y));
+    // }
+
+    // private bool Exists(int x, int y)
+    // {
+    //     return _mazeMap.ContainsKey((x, y));
+    // }
+
     // TODO Problem 4 - ADD YOUR CODE HERE
     /// <summary>
     /// Check to see if you can move left.  If you can, then move.  If you
@@ -33,6 +43,18 @@ public class Maze
     public void MoveLeft()
     {
         // FILL IN CODE
+        var cell = _mazeMap[(_currX, _currY)];
+        
+        if (!cell[0])
+        throw new InvalidOperationException("Can't go that way!");
+
+        // if (!cell[0] || !Exists(_currX - 1, _currY))
+        //     throw new InvalidOperationException("Can't go that way!");
+
+        // if (!CanMove(_currX - 1, _currY))
+        // throw new InvalidOperationException("Can't go that way!");
+
+        _currX--;
     }
 
     /// <summary>
@@ -42,6 +64,18 @@ public class Maze
     public void MoveRight()
     {
         // FILL IN CODE
+         var cell = _mazeMap[(_currX, _currY)];
+
+        if (!cell[1])
+        throw new InvalidOperationException("Can't go that way!");
+
+        // if (!cell[1] (_currX, _currY))
+        //     throw new InvalidOperationException("Can't go that way!");
+
+        // if (!CanMove(_currX + 1, _currY))
+        // throw new InvalidOperationException("Can't go that way!");
+
+        _currX++;
     }
 
     /// <summary>
@@ -51,6 +85,17 @@ public class Maze
     public void MoveUp()
     {
         // FILL IN CODE
+        var cell = _mazeMap[(_currX, _currY)];
+
+        if (!cell[2])
+        throw new InvalidOperationException("Can't go that way!");
+        // if (!cell[2] (_currX, _currY ))
+        //     throw new InvalidOperationException("Can't go that way!");
+
+        // if (!CanMove(_currX, _currY + 1))
+        // throw new InvalidOperationException("Can't go that way!");
+
+        _currY--;
     }
 
     /// <summary>
@@ -60,6 +105,17 @@ public class Maze
     public void MoveDown()
     {
         // FILL IN CODE
+        var cell = _mazeMap[(_currX, _currY)];
+        
+
+        if (!cell[3])
+            throw new InvalidOperationException("Can't go that way!");
+
+        // if (!CanMove(_currX, _currY - 1))
+        // throw new InvalidOperationException("Can't go that way Boss!");
+        
+        _currY++;
+
     }
 
     public string GetStatus()
